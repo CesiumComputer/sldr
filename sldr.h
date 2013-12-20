@@ -54,13 +54,13 @@ struct sldr_cb_data {
 
 typedef void (*sldr_callback_t)(struct sldr_cb_data *);
 
-extern struct sldr *sldr_create(void);
-extern void sldr_destroy(struct sldr **);
-
-extern void sldr_queue(struct sldr *, void *context, const char *host,
-                       enum dns_query_type type, sldr_callback_t callback);
-extern int sldr_poll(struct sldr *, int milliseconds);
-extern void sldr_cancel(struct sldr *, const void *context);
+struct sldr *sldr_create(void);
+void sldr_destroy(struct sldr **);
+void sldr_queue(struct sldr *, void *context, const char *host,
+                enum dns_query_type type, sldr_callback_t callback);
+int sldr_poll(struct sldr *, int milliseconds);
+int sldr_get_fd(struct sldr *);
+void sldr_cancel(struct sldr *, const void *context);
 
 #ifdef __cplusplus
 }
