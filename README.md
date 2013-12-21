@@ -3,9 +3,10 @@ SLDR: Super Light DNS Resolver
 
 SLDR is a tiny asynchronous DNS resolver written in C. It is capable of
 doing A, AAAA and MX requests. SLDR is supposed to be used on embedded
-systems and in applications that performs large amount of DNS requests.
-SLDR keeps query cache, therefore subsequent calls to resolve the same
-host hit the cache, saving time and traffic.
+systems, and in applications that performs large amount of DNS requests
+where traditional blocking resolvers are too slow. SLDR keeps query cache,
+making subsequent resolutions of the same host efficient for time and
+traffic.
 
 SLDR usage pattern is as follows:
 
@@ -65,7 +66,7 @@ increase kernel socket buffer.
 
 Cancel queued DNS query.
 
-## Example
+## Example: resolving google.com asynchronously
 
     #include <stdio.h>
     #include "sldr.h"
