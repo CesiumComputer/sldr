@@ -5,15 +5,16 @@ SLDR is a tiny asynchronous DNS resolver written in C. It is capable of
 doing A, AAAA and MX requests. SLDR is supposed to be used on embedded
 systems and in applications that performs large amount of DNS requests.
 
-SLDR usage pattern is this:
+SLDR usage pattern is as follows:
 
-   * SLDR context is created by `sldr_create()`
-   * Application schedules queries on SLDR context by `sldr_queue()`, which
+   * Application clreates SLDR context by means of `sldr_create()`
+   * Application schedules queries on SLDR context with `sldr_queue()`, which
      sends DNS UDP request and remembers which callback to call on success
      or failure, with optional unique application-defined parameter (application
      context).
    * Application does `sldr_poll()` which reads DNS replies and calls
-     respective callbacks
+     respective callbacks. `sldr_poll` Is supposed to be called in a loop,
+     with `sldr_queue()` calls in between to schedule new queries.
    * When done, application calls `sldr_destroy()`
    * Queued queries could be canceled with `sldr_cancel()`
 
