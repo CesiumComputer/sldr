@@ -100,7 +100,7 @@ Then, one can send queries like:
     google.com: 74.125.24.113
     $ ./sldr google.com aaaa
     google.com: 2a00:1450:400b:0c02:0000:0000:0000:0066
-    $ ./sldr google.com aaaa mx
+    $ ./sldr google.com mx
     alt3.aspmx.l.google.com
 
 # Licensing
