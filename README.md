@@ -13,7 +13,7 @@ SLDR usage pattern is as follows:
      or failure, with optional unique application-defined parameter (application
      context).
    * Application does `sldr_poll()` which reads DNS replies and calls
-     respective callbacks. `sldr_poll` Is supposed to be called in a loop,
+     respective callbacks. `sldr_poll()` Is supposed to be called in a loop,
      with `sldr_queue()` calls in between to schedule new queries.
    * When done, application calls `sldr_destroy()`
    * Queued queries could be canceled with `sldr_cancel()`
@@ -109,3 +109,8 @@ free, or under the terms of standard commercial license provided by [Cesanta
 Software](http://cesanta.com). Businesses who whish to use Cesanta's products
 have an option to
 [license commercial version](http://cesanta.com/products.html).
+
+[Super Light Regular Expression library](https://github.com/cesanta/slre),
+[Mongoose web server](https://github.com/cesanta/mongoose)
+are other projects by Cesanta Software, developed with the same philosophy
+of functionality and simplicity.
