@@ -105,12 +105,11 @@ Then, one can send queries like:
 
 # Licensing
 
-SLDR is dual licensed. It is available either under the terms of [GNU GPL
-v.2 license](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) for
-free, or under the terms of standard commercial license provided by [Cesanta
-Software](http://cesanta.com). Businesses who whish to use Cesanta's products
-have an option to
-[license commercial version](http://cesanta.com/products.html).
+SLDR is released under
+[GNU GPL v.2](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html).
+Businesses have an option to get non-restrictive, royalty-free commercial
+license and professional support from
+[Cesanta Software](http://cesanta.com).
 
 [Super Light Regular Expression library](https://github.com/cesanta/slre),
 [Mongoose web server](https://github.com/cesanta/mongoose)
