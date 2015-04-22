@@ -219,15 +219,23 @@ struct sldr *sldr_create(void) {
   { WSADATA data; WSAStartup(MAKEWORD(2,2), &data); }
 #endif /* _WIN32 */
 
-  /* FIXME resource leak here */
   if ((sldr = (struct sldr *) calloc(1, sizeof(*sldr))) == NULL)
     return (NULL);
-  else if ((sldr->sock = socket(PF_INET, SOCK_DGRAM, 17)) == -1)
+
+  if ((sldr->sock = socket(PF_INET, SOCK_DGRAM, 17)) == -1) {
+    free(sldr);
     return (NULL);
-  else if (set_non_blocking_mode(sldr->sock) != 0)
+  }
+
+  if (set_non_blocking_mode(sldr->sock) != 0) {
+    free(sldr);
     return (NULL);
-  else if (get_ip_address_of_sldr_server(sldr) != 0)
+  }
+
+  if (get_ip_address_of_sldr_server(sldr) != 0) {
+    free(sldr);
     return (NULL);
+  }
 
   sldr->sa.sin_family  = AF_INET;
   sldr->sa.sin_port  = htons(53);

@@ -70,7 +70,7 @@ Cancel queued DNS query.
     #include <stdio.h>
     #include "sldr.h"
 
-    static const struct dns_callback(struct sldr_cb_data *cbd) {
+    void dns_callback(struct sldr_cb_data *cbd) {
       if (cbd->error == SLDR_OK) {
         printf("%s: %u.%u.%u.%u\n", cbd->name,
                cbd->addr[0], cbd->addr[1], cbd->addr[2], cbd->addr[3]);
